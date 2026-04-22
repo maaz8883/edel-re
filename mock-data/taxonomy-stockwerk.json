@@ -1,0 +1,30 @@
+[
+    {
+        "id": "178",
+        "title": {
+            "en": "Attic / top-floor apartment",
+            "de": "Dachgeschosswohnung"
+        }
+    },
+    {
+        "id": "179",
+        "title": {
+            "en": "Apartment (multi-storey building)",
+            "de": "Etagenwohnung"
+        }
+    },
+    {
+        "id": "182",
+        "title": {
+            "en": "Ground-floor apartment",
+            "de": "Erdgeschosswohnung"
+        }
+    },
+    {
+        "id": "181",
+        "title": {
+            "en": "Maisonette",
+            "de": "Maisonette"
+        }
+    }
+]

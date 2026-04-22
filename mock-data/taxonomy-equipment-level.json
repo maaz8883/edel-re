@@ -1,0 +1,37 @@
+[
+    {
+        "id": "108",
+        "title": {
+            "en": "Basic",
+            "de": "Einfach"
+        }
+    },
+    {
+        "id": "109",
+        "title": {
+            "en": "Well maintained",
+            "de": "Gepflegt"
+        }
+    },
+    {
+        "id": "110",
+        "title": {
+            "en": "Upscale",
+            "de": "Gehoben"
+        }
+    },
+    {
+        "id": "111",
+        "title": {
+            "en": "Luxury",
+            "de": "Luxus"
+        }
+    },
+    {
+        "id": "112",
+        "title": {
+            "en": "Standard",
+            "de": "Normal"
+        }
+    }
+]

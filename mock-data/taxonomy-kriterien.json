@@ -1,0 +1,58 @@
+[
+    {
+        "id": "91",
+        "title": {
+            "en": "Balcony / terrace",
+            "de": "Balkon/Terrasse"
+        }
+    },
+    {
+        "id": "92",
+        "title": {
+            "en": "Top floor / penthouse",
+            "de": "Dachgeschoss"
+        }
+    },
+    {
+        "id": "93",
+        "title": {
+            "en": "Fitted kitchen",
+            "de": "Einbauküche"
+        }
+    },
+    {
+        "id": "94",
+        "title": {
+            "en": "Guest WC",
+            "de": "Gäste-WC"
+        }
+    },
+    {
+        "id": "95",
+        "title": {
+            "en": "Garden / shared garden",
+            "de": "Garten/-mitbenutzung"
+        }
+    },
+    {
+        "id": "96",
+        "title": {
+            "en": "Cellar",
+            "de": "Keller"
+        }
+    },
+    {
+        "id": "97",
+        "title": {
+            "en": "Passenger elevator",
+            "de": "Personenaufzug"
+        }
+    },
+    {
+        "id": "98",
+        "title": {
+            "en": "Parking space",
+            "de": "Stellplatz"
+        }
+    }
+]

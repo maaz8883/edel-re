@@ -1,0 +1,32 @@
+{
+    "categories": [
+        {
+            "id": "0",
+            "name": {
+                "de": "Condominiums",
+                "en": "Condominiums"
+            }
+        },
+        {
+            "id": "1",
+            "name": {
+                "de": "Investments",
+                "en": "Investments"
+            }
+        },
+        {
+            "id": "2",
+            "name": {
+                "de": "Gastronomie/Hotellerie",
+                "en": "Gastronomy/Hotel Industry"
+            }
+        },
+        {
+            "id": "3",
+            "name": {
+                "de": "Büros/Praxen",
+                "en": "Offices/Practices"
+            }
+        }
+    ]
+}

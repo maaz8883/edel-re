@@ -1,0 +1,128 @@
+[
+    {
+        "id": "13",
+        "title": {
+            "en": "Bungalow",
+            "de": "Bungalow"
+        }
+    },
+    {
+        "id": "14",
+        "title": {
+            "en": "Castle / château",
+            "de": "Burg/Schloss"
+        }
+    },
+    {
+        "id": "15",
+        "title": {
+            "en": "Farmhouse",
+            "de": "Bauernhaus"
+        }
+    },
+    {
+        "id": "16",
+        "title": {
+            "en": "Semi-detached house",
+            "de": "Doppelhaushälfte"
+        }
+    },
+    {
+        "id": "17",
+        "title": {
+            "en": "Attic / penthouse apartment",
+            "de": "Dachgeschosswohnung"
+        }
+    },
+    {
+        "id": "18",
+        "title": {
+            "en": "Condominium",
+            "de": "Eigentumswohnung"
+        }
+    },
+    {
+        "id": "19",
+        "title": {
+            "en": "Apartment",
+            "de": "Etagenwohnung"
+        }
+    },
+    {
+        "id": "20",
+        "title": {
+            "en": "Single-family house",
+            "de": "Einfamilienhaus"
+        }
+    },
+    {
+        "id": "21",
+        "title": {
+            "en": "Ground-floor apartment",
+            "de": "Erdgeschosswohnung"
+        }
+    },
+    {
+        "id": "22",
+        "title": {
+            "en": "Raised ground floor",
+            "de": "Hochparterre"
+        }
+    },
+    {
+        "id": "23",
+        "title": {
+            "en": "Loft",
+            "de": "Loft"
+        }
+    },
+    {
+        "id": "24",
+        "title": {
+            "en": "Maisonette",
+            "de": "Maisonette"
+        }
+    },
+    {
+        "id": "25",
+        "title": {
+            "en": "Multi-family building",
+            "de": "Mehrfamilienhaus"
+        }
+    },
+    {
+        "id": "26",
+        "title": {
+            "en": "Penthouse",
+            "de": "Penthouse"
+        }
+    },
+    {
+        "id": "27",
+        "title": {
+            "en": "Terraced house",
+            "de": "Reihenhaus"
+        }
+    },
+    {
+        "id": "28",
+        "title": {
+            "en": "Basement level",
+            "de": "Souterrain"
+        }
+    },
+    {
+        "id": "29",
+        "title": {
+            "en": "Terrace apartment",
+            "de": "Terrassenwohnung"
+        }
+    },
+    {
+        "id": "30",
+        "title": {
+            "en": "Villa",
+            "de": "Villa"
+        }
+    }
+]

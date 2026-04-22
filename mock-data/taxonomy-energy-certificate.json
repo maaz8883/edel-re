@@ -1,0 +1,16 @@
+[
+    {
+        "id": "126",
+        "title": {
+            "en": "Available",
+            "de": "Liegt vor"
+        }
+    },
+    {
+        "id": "127",
+        "title": {
+            "en": "Available for viewing",
+            "de": "Liegt zur Besichtigung vor"
+        }
+    }
+]

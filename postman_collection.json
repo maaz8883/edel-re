@@ -1,0 +1,493 @@
+{
+  "info": {
+    "name": "Mock Data APIs - CRUD",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "base_url", "value": "http://localhost:8000/api", "type": "string" },
+    { "key": "token", "value": "", "type": "string" }
+  ],
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "POST Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var res = pm.response.json();",
+                  "if (res.token) { pm.collectionVariables.set('token', res.token); }"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": {
+              "raw": "{{base_url}}/login",
+              "host": ["{{base_url}}"],
+              "path": ["login"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"admin@admin.com\",\n  \"password\": \"password\"\n}"
+            }
+          }
+        },
+        {
+          "name": "GET Me (Current User)",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": {
+              "raw": "{{base_url}}/me",
+              "host": ["{{base_url}}"],
+              "path": ["me"]
+            }
+          }
+        },
+        {
+          "name": "POST Logout",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": {
+              "raw": "{{base_url}}/logout",
+              "host": ["{{base_url}}"],
+              "path": ["logout"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Properties",
+      "item": [
+        {
+          "name": "GET All Properties",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/properties",
+              "host": ["{{base_url}}"],
+              "path": ["properties"]
+            }
+          }
+        },
+        {
+          "name": "GET All Properties (Filtered)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/properties?typeId=0&statusId=177&minPrice=300000&maxPrice=500000&rooms=2",
+              "host": ["{{base_url}}"],
+              "path": ["properties"],
+              "query": [
+                { "key": "typeId", "value": "0" },
+                { "key": "statusId", "value": "177" },
+                { "key": "minPrice", "value": "300000" },
+                { "key": "maxPrice", "value": "500000" },
+                { "key": "rooms", "value": "2" },
+                { "key": "regionId", "value": "", "disabled": true },
+                { "key": "minArea", "value": "", "disabled": true },
+                { "key": "featured", "value": "", "disabled": true }
+              ]
+            }
+          }
+        },
+        {
+          "name": "GET Property by ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/properties/prop-001",
+              "host": ["{{base_url}}"],
+              "path": ["properties", "prop-001"]
+            }
+          }
+        },
+        {
+          "name": "GET Property by Slug (EN)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/properties/slug/en/bright-renovated-apartment-terrace-munich",
+              "host": ["{{base_url}}"],
+              "path": ["properties", "slug", "en", "bright-renovated-apartment-terrace-munich"]
+            }
+          }
+        },
+        {
+          "name": "GET Property by Slug (DE)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/properties/slug/de/helle-renovierte-wohnung-terrasse-muenchen",
+              "host": ["{{base_url}}"],
+              "path": ["properties", "slug", "de", "helle-renovierte-wohnung-terrasse-muenchen"]
+            }
+          }
+        },
+        {
+          "name": "POST Create Property",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": {
+              "raw": "{{base_url}}/properties",
+              "host": ["{{base_url}}"],
+              "path": ["properties"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"typeId\": \"0\",\n  \"title\": { \"en\": \"New Property\", \"de\": \"Neue Immobilie\" },\n  \"slug\": { \"en\": \"new-property\", \"de\": \"neue-immobilie\" },\n  \"price\": 400000,\n  \"livingArea\": 90,\n  \"statusId\": 177,\n  \"regionId\": 149,\n  \"totalRooms\": 3,\n  \"roomCountSearch\": 2,\n  \"yearBuilt\": 2022,\n  \"featured\": false,\n  \"address\": { \"en\": \"Sample Street 1, Berlin\", \"de\": \"Musterstraße 1, Berlin\" },\n  \"description\": { \"en\": \"A great property.\", \"de\": \"Eine tolle Immobilie.\" },\n  \"overview\": { \"area\": 90, \"bedrooms\": 2, \"bathrooms\": 1 },\n  \"agent\": { \"name\": \"Test Agent\", \"image\": \"/images/user.png\", \"logo\": \"/images/logo-dark.png\" }\n}"
+            }
+          }
+        },
+        {
+          "name": "PUT Update Property",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": {
+              "raw": "{{base_url}}/properties/prop-001",
+              "host": ["{{base_url}}"],
+              "path": ["properties", "prop-001"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"price\": 380000,\n  \"featured\": true,\n  \"title\": { \"en\": \"Updated Title EN\", \"de\": \"Aktualisierter Titel DE\" }\n}"
+            }
+          }
+        },
+        {
+          "name": "PATCH Partial Update Property",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": {
+              "raw": "{{base_url}}/properties/prop-001",
+              "host": ["{{base_url}}"],
+              "path": ["properties", "prop-001"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"price\": 370000\n}"
+            }
+          }
+        },
+        {
+          "name": "DELETE Property",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{base_url}}/properties/prop-001",
+              "host": ["{{base_url}}"],
+              "path": ["properties", "prop-001"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "News",
+      "item": [
+        {
+          "name": "GET All News",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/news?page=1&perPage=10",
+              "host": ["{{base_url}}"],
+              "path": ["news"],
+              "query": [
+                { "key": "page", "value": "1" },
+                { "key": "perPage", "value": "10" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "GET News by ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/news/1",
+              "host": ["{{base_url}}"],
+              "path": ["news", "1"]
+            }
+          }
+        },
+        {
+          "name": "GET News by Slug (EN)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/news/slug/en/berlin-real-estate-market-record-growth-2026",
+              "host": ["{{base_url}}"],
+              "path": ["news", "slug", "en", "berlin-real-estate-market-record-growth-2026"]
+            }
+          }
+        },
+        {
+          "name": "GET News by Slug (DE)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/news/slug/de/berliner-immobilienmarkt-rekordwachstum-2026",
+              "host": ["{{base_url}}"],
+              "path": ["news", "slug", "de", "berliner-immobilienmarkt-rekordwachstum-2026"]
+            }
+          }
+        },
+        {
+          "name": "POST Create News",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": {
+              "raw": "{{base_url}}/news",
+              "host": ["{{base_url}}"],
+              "path": ["news"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": { \"en\": \"New Article EN\", \"de\": \"Neuer Artikel DE\" },\n  \"slug\": { \"en\": \"new-article-en\", \"de\": \"neuer-artikel-de\" },\n  \"shortDescription\": { \"en\": \"Short desc EN\", \"de\": \"Kurzbeschreibung DE\" },\n  \"description\": { \"en\": \"<p>Full content EN</p>\", \"de\": \"<p>Vollständiger Inhalt DE</p>\" },\n  \"image\": \"/images/property-image.png\",\n  \"date\": \"2026-04-13\"\n}"
+            }
+          }
+        },
+        {
+          "name": "PUT Update News",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": {
+              "raw": "{{base_url}}/news/1",
+              "host": ["{{base_url}}"],
+              "path": ["news", "1"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": { \"en\": \"Updated Title EN\", \"de\": \"Aktualisierter Titel DE\" },\n  \"date\": \"2026-04-13\"\n}"
+            }
+          }
+        },
+        {
+          "name": "PATCH Partial Update News",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": {
+              "raw": "{{base_url}}/news/1",
+              "host": ["{{base_url}}"],
+              "path": ["news", "1"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"image\": \"/images/new-image.png\"\n}"
+            }
+          }
+        },
+        {
+          "name": "DELETE News",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{base_url}}/news/1",
+              "host": ["{{base_url}}"],
+              "path": ["news", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Categories",
+      "item": [
+        {
+          "name": "GET All Categories",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/categories",
+              "host": ["{{base_url}}"],
+              "path": ["categories"]
+            }
+          }
+        },
+        {
+          "name": "GET Category by ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/categories/0",
+              "host": ["{{base_url}}"],
+              "path": ["categories", "0"]
+            }
+          }
+        },
+        {
+          "name": "POST Create Category",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": {
+              "raw": "{{base_url}}/categories",
+              "host": ["{{base_url}}"],
+              "path": ["categories"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": { \"en\": \"New Category\", \"de\": \"Neue Kategorie\" }\n}"
+            }
+          }
+        },
+        {
+          "name": "PUT Update Category",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": {
+              "raw": "{{base_url}}/categories/0",
+              "host": ["{{base_url}}"],
+              "path": ["categories", "0"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": { \"en\": \"Updated Category EN\", \"de\": \"Aktualisierte Kategorie DE\" }\n}"
+            }
+          }
+        },
+        {
+          "name": "PATCH Partial Update Category",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": {
+              "raw": "{{base_url}}/categories/0",
+              "host": ["{{base_url}}"],
+              "path": ["categories", "0"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": { \"en\": \"Patched EN\" }\n}"
+            }
+          }
+        },
+        {
+          "name": "DELETE Category",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{base_url}}/categories/0",
+              "host": ["{{base_url}}"],
+              "path": ["categories", "0"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Taxonomies",
+      "item": [
+        {
+          "name": "GET All Taxonomy Names",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/taxonomies",
+              "host": ["{{base_url}}"],
+              "path": ["taxonomies"]
+            }
+          }
+        },
+        {
+          "name": "GET Taxonomy List (e.g. region)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/taxonomies/region",
+              "host": ["{{base_url}}"],
+              "path": ["taxonomies", "region"]
+            }
+          }
+        },
+        {
+          "name": "GET Taxonomy Item by ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/taxonomies/region/152",
+              "host": ["{{base_url}}"],
+              "path": ["taxonomies", "region", "152"]
+            }
+          }
+        },
+        {
+          "name": "POST Create Taxonomy Item",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": {
+              "raw": "{{base_url}}/taxonomies/region",
+              "host": ["{{base_url}}"],
+              "path": ["taxonomies", "region"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"200\",\n  \"title\": { \"en\": \"Berlin: New District\", \"de\": \"Berlin: Neuer Bezirk\" }\n}"
+            }
+          }
+        },
+        {
+          "name": "PUT Update Taxonomy Item",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": {
+              "raw": "{{base_url}}/taxonomies/region/152",
+              "host": ["{{base_url}}"],
+              "path": ["taxonomies", "region", "152"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": { \"en\": \"Berlin: Prenzlauer Berg (Updated)\", \"de\": \"Berlin: Prenzlauer Berg (Aktualisiert)\" }\n}"
+            }
+          }
+        },
+        {
+          "name": "PATCH Partial Update Taxonomy Item",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": {
+              "raw": "{{base_url}}/taxonomies/region/152",
+              "host": ["{{base_url}}"],
+              "path": ["taxonomies", "region", "152"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": { \"en\": \"Berlin: PB Patched\" }\n}"
+            }
+          }
+        },
+        {
+          "name": "DELETE Taxonomy Item",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{base_url}}/taxonomies/region/152",
+              "host": ["{{base_url}}"],
+              "path": ["taxonomies", "region", "152"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

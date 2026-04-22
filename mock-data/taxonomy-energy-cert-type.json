@@ -1,0 +1,16 @@
+[
+    {
+        "id": "bedarf",
+        "title": {
+            "en": "Energy demand certificate",
+            "de": "Bedarfsausweis"
+        }
+    },
+    {
+        "id": "verbrauch",
+        "title": {
+            "en": "Energy consumption certificate",
+            "de": "Verbrauchsausweis"
+        }
+    }
+]

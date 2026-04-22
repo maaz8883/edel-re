@@ -1,0 +1,72 @@
+[
+    {
+        "id": "3",
+        "title": {
+            "en": "Available immediately",
+            "de": "Ab sofort bezugsfrei"
+        }
+    },
+    {
+        "id": "4",
+        "title": {
+            "en": "First occupancy",
+            "de": "Erstbezug"
+        }
+    },
+    {
+        "id": "5",
+        "title": {
+            "en": "First occupancy after renovation",
+            "de": "Erstbezug nach Sanierung"
+        }
+    },
+    {
+        "id": "6",
+        "title": {
+            "en": "Well maintained",
+            "de": "Gepflegt"
+        }
+    },
+    {
+        "id": "7",
+        "title": {
+            "en": "Modernized",
+            "de": "Modernisiert"
+        }
+    },
+    {
+        "id": "8",
+        "title": {
+            "en": "Renovated",
+            "de": "Renoviert"
+        }
+    },
+    {
+        "id": "9",
+        "title": {
+            "en": "Needs renovation",
+            "de": "Renovierungsbedürftig"
+        }
+    },
+    {
+        "id": "10",
+        "title": {
+            "en": "Refurbished",
+            "de": "Saniert"
+        }
+    },
+    {
+        "id": "11",
+        "title": {
+            "en": "Needs refurbishment",
+            "de": "Sanierungsbedürftig"
+        }
+    },
+    {
+        "id": "12",
+        "title": {
+            "en": "Rented",
+            "de": "Vermietet"
+        }
+    }
+]

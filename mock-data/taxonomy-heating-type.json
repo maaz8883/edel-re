@@ -1,0 +1,37 @@
+[
+    {
+        "id": "113",
+        "title": {
+            "en": "Individual unit heating",
+            "de": "Etagenheizung"
+        }
+    },
+    {
+        "id": "114",
+        "title": {
+            "en": "District heating",
+            "de": "Fernwärme"
+        }
+    },
+    {
+        "id": "115",
+        "title": {
+            "en": "Electric heating",
+            "de": "Stromheizung"
+        }
+    },
+    {
+        "id": "116",
+        "title": {
+            "en": "Heat pump",
+            "de": "Wärmepumpen"
+        }
+    },
+    {
+        "id": "117",
+        "title": {
+            "en": "Central heating",
+            "de": "Zentralheizung"
+        }
+    }
+]

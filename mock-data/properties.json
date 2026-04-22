@@ -1,0 +1,397 @@
+[
+    {
+        "id": "1",
+        "typeId": "0",
+        "slug": {
+            "en": "bright-renovated-apartment-terrace-munich",
+            "de": "helle-renovierte-wohnung-terrasse-muenchen"
+        },
+        "title": {
+            "en": "Bright renovated apartment with terrace in Munich center",
+            "de": "Helle renovierte Wohnung mit Terrasse im Münchner Zentrum"
+        },
+        "featured": false,
+        "statusId": 177,
+        "price": 365000,
+        "searchPrice": 365000,
+        "searchSalePrice": 0,
+        "priceSuffix": { "en": "", "de": "" },
+        "floorTypes": [179],
+        "regionId": 141,
+        "roomCountSearch": 2,
+        "conditionSearch": [6],
+        "purchasePrice": 365000,
+        "objectTypeId": 19,
+        "totalRooms": 3,
+        "livingArea": 72,
+        "usableArea": 0,
+        "floorInfo": { "en": "2 of 5", "de": "2 von 5" },
+        "yearBuilt": 2019,
+        "availableFrom": { "en": "", "de": "" },
+        "objectConditionId": 104,
+        "modernization": { "en": "", "de": "" },
+        "heatingTypeId": 117,
+        "energyCertificateId": 126,
+        "energyCertTypeId": "bedarf",
+        "energyCarrierId": 119,
+        "equipmentLevelId": 109,
+        "address": {
+            "de": "Sendlinger Strasse 18, 80331 München, Germany",
+            "en": "Sendlinger Strasse 18, 80331 München, Germany"
+        },
+        "locationQuery": { "en": "Munich", "de": "München" },
+        "postalCode": { "en": "80331", "de": "80331" },
+        "latitude": "",
+        "longitude": "",
+        "images": [
+            "/images/property-image.png",
+            "/images/property-image.png",
+            "/images/property-image.png",
+            "/images/property-image.png",
+            "/images/property-image.png"
+        ],
+        "overview": { "area": 72, "bedrooms": 2, "bathrooms": 1 },
+        "description": {
+            "en": "This beautifully renovated apartment offers a bright and welcoming atmosphere with large windows and modern finishes. The living area opens to a quiet terrace, perfect for relaxing evenings. The layout is practical and ideal for couples or small families.",
+            "de": "Diese wunderschön renovierte Wohnung bietet eine helle und einladende Atmosphäre mit großen Fenstern und modernen Oberflächen. Der Wohnbereich öffnet sich zu einer ruhigen Terrasse, ideal für entspannte Abende. Der Grundriss ist praktisch und ideal für Paare oder kleine Familien."
+        },
+        "equipment": {
+            "en": ["Terrace with courtyard view", "Modern fitted kitchen", "Underfloor heating"],
+            "de": ["Terrasse mit Hofblick", "Moderne Einbauküche", "Fußbodenheizung"]
+        },
+        "criteria": {
+            "en": ["Balcony / terrace", "Passenger elevator", "Cellar"],
+            "de": ["Balkon/Terrasse", "Personenaufzug", "Keller"]
+        },
+        "locationDescription": {
+            "en": "Situated in the vibrant center of Munich, this property is surrounded by shops, cafes, and excellent public transport connections.",
+            "de": "Im lebhaften Zentrum Münchens gelegen, ist die Immobilie von Geschäften, Cafés und ausgezeichneten öffentlichen Verkehrsanbindungen umgeben."
+        },
+        "lageRich": { "en": "", "de": "" },
+        "equipmentDescriptionRich": { "en": "", "de": "" },
+        "callToActionRich": { "en": "", "de": "" },
+        "criteriaSelected": [91, 97, 96],
+        "agent": {
+            "name": "Bavaria Estates",
+            "image": "/images/user.png",
+            "logo": "/images/logo-dark.png"
+        },
+        "floorPlan": "/images/plan.png"
+    },
+    {
+        "id": "2",
+        "typeId": "0",
+        "slug": {
+            "en": "spacious-family-apartment-berlin-park",
+            "de": "geraeumige-familienwohnung-berlin-park"
+        },
+        "title": {
+            "en": "Spacious family apartment near park in Berlin",
+            "de": "Geräumige Familienwohnung in Parknähe in Berlin"
+        },
+        "featured": false,
+        "statusId": 177,
+        "price": 420000,
+        "searchPrice": 420000,
+        "searchSalePrice": 0,
+        "priceSuffix": { "en": "", "de": "" },
+        "floorTypes": [179],
+        "regionId": 152,
+        "roomCountSearch": 3,
+        "conditionSearch": [6],
+        "purchasePrice": 420000,
+        "objectTypeId": 19,
+        "totalRooms": 4,
+        "livingArea": 85,
+        "usableArea": 0,
+        "floorInfo": { "en": "1 of 4", "de": "1 von 4" },
+        "yearBuilt": 2015,
+        "availableFrom": { "en": "", "de": "" },
+        "objectConditionId": 101,
+        "modernization": { "en": "", "de": "" },
+        "heatingTypeId": 117,
+        "energyCertificateId": 127,
+        "energyCertTypeId": "verbrauch",
+        "energyCarrierId": 119,
+        "equipmentLevelId": 109,
+        "address": {
+            "de": "Prenzlauer Allee 45, 10405 Berlin, Germany",
+            "en": "Prenzlauer Allee 45, 10405 Berlin, Germany"
+        },
+        "locationQuery": { "en": "Berlin Prenzlauer Berg", "de": "Berlin Prenzlauer Berg" },
+        "postalCode": { "en": "10405", "de": "10405" },
+        "latitude": "",
+        "longitude": "",
+        "images": [
+            "/images/property-image.png",
+            "/images/property-image.png",
+            "/images/property-image.png",
+            "/images/property-image.png",
+            "/images/property-image.png"
+        ],
+        "overview": { "area": 85, "bedrooms": 3, "bathrooms": 1 },
+        "description": {
+            "en": "A spacious and well-designed apartment located close to green parks and playgrounds. The property features three comfortable rooms, making it ideal for families. Natural light fills the space through large windows.",
+            "de": "Eine geräumige und gut gestaltete Wohnung in der Nähe von Parks und Spielplätzen. Die Immobilie verfügt über drei komfortable Zimmer und ist ideal für Familien geeignet. Natürliches Licht flutet den Raum durch große Fenster."
+        },
+        "equipment": {
+            "en": ["Family-friendly layout", "Parquet flooring", "Storage room"],
+            "de": ["Familienfreundlicher Grundriss", "Parkettboden", "Abstellraum"]
+        },
+        "criteria": {
+            "en": ["Cellar", "Garden / shared garden"],
+            "de": ["Keller", "Garten/-mitbenutzung"]
+        },
+        "locationDescription": {
+            "en": "Located in Prenzlauer Berg, known for its parks, cafes, and relaxed lifestyle.",
+            "de": "Im Prenzlauer Berg gelegen, bekannt für seine Parks, Cafés und entspannte Lebensweise."
+        },
+        "lageRich": { "en": "", "de": "" },
+        "equipmentDescriptionRich": { "en": "", "de": "" },
+        "callToActionRich": { "en": "", "de": "" },
+        "criteriaSelected": [96, 95],
+        "agent": {
+            "name": "Berlin Living",
+            "image": "/images/user.png",
+            "logo": "/images/logo-dark.png"
+        },
+        "floorPlan": "/images/plan.png"
+    },
+    {
+        "id": "3",
+        "typeId": "0",
+        "slug": {
+            "en": "modern-studio-frankfurt-financial-district",
+            "de": "modernes-studio-frankfurt-bankenviertel"
+        },
+        "title": {
+            "en": "Modern studio apartment in Frankfurt financial district",
+            "de": "Modernes Studio-Apartment im Frankfurter Bankenviertel"
+        },
+        "featured": false,
+        "statusId": 177,
+        "price": 250000,
+        "searchPrice": 250000,
+        "searchSalePrice": 0,
+        "priceSuffix": { "en": "", "de": "" },
+        "floorTypes": [179],
+        "regionId": 146,
+        "roomCountSearch": 1,
+        "conditionSearch": [7],
+        "purchasePrice": 250000,
+        "objectTypeId": 19,
+        "totalRooms": 1,
+        "livingArea": 40,
+        "usableArea": 0,
+        "floorInfo": { "en": "6 of 10", "de": "6 von 10" },
+        "yearBuilt": 2020,
+        "availableFrom": { "en": "", "de": "" },
+        "objectConditionId": 103,
+        "modernization": { "en": "", "de": "" },
+        "heatingTypeId": 114,
+        "energyCertificateId": 126,
+        "energyCertTypeId": "bedarf",
+        "energyCarrierId": 122,
+        "equipmentLevelId": 112,
+        "address": {
+            "de": "Mainzer Landstrasse 120, 60327 Frankfurt, Germany",
+            "en": "Mainzer Landstrasse 120, 60327 Frankfurt, Germany"
+        },
+        "locationQuery": { "en": "Frankfurt", "de": "Frankfurt" },
+        "postalCode": { "en": "60327", "de": "60327" },
+        "latitude": "",
+        "longitude": "",
+        "images": [
+            "/images/property-image.png",
+            "/images/property-image.png",
+            "/images/property-image.png",
+            "/images/property-image.png",
+            "/images/property-image.png"
+        ],
+        "overview": { "area": 40, "bedrooms": 1, "bathrooms": 1 },
+        "description": {
+            "en": "A stylish studio apartment perfect for professionals working in the financial district. Compact yet functional, the layout maximizes space and comfort with a modern interior design.",
+            "de": "Ein stilvolles Studio-Apartment, perfekt für Berufstätige im Bankenviertel. Kompakt aber funktional – der Grundriss maximiert Platz und Komfort mit modernem Innendesign."
+        },
+        "equipment": {
+            "en": ["Open-plan living", "Built-in wardrobes", "Modern bathroom"],
+            "de": ["Offene Wohnfläche", "Einbauschränke", "Modernes Badezimmer"]
+        },
+        "criteria": {
+            "en": ["Fitted kitchen", "Cellar"],
+            "de": ["Einbauküche", "Keller"]
+        },
+        "locationDescription": {
+            "en": "Right in Frankfurt's financial hub with quick access to offices, restaurants, and public transport.",
+            "de": "Direkt im Frankfurter Finanzzentrum mit schnellem Zugang zu Büros, Restaurants und öffentlichem Nahverkehr."
+        },
+        "lageRich": { "en": "", "de": "" },
+        "equipmentDescriptionRich": { "en": "", "de": "" },
+        "callToActionRich": { "en": "", "de": "" },
+        "criteriaSelected": [93, 96],
+        "agent": {
+            "name": "Prime Properties",
+            "image": "/images/user.png",
+            "logo": "/images/logo-dark.png"
+        },
+        "floorPlan": "/images/plan.png"
+    },
+    {
+        "id": "4",
+        "typeId": "0",
+        "slug": {
+            "en": "luxury-penthouse-hamburg-city-view",
+            "de": "luxus-penthouse-hamburg-stadtpanorama"
+        },
+        "title": {
+            "en": "Elegant penthouse with panoramic views in Hamburg",
+            "de": "Elegantes Penthouse mit Panoramablick in Hamburg"
+        },
+        "featured": false,
+        "statusId": 177,
+        "price": 910000,
+        "searchPrice": 910000,
+        "searchSalePrice": 0,
+        "priceSuffix": { "en": "", "de": "" },
+        "floorTypes": [178],
+        "regionId": 155,
+        "roomCountSearch": 3,
+        "conditionSearch": [8],
+        "purchasePrice": 910000,
+        "objectTypeId": 26,
+        "totalRooms": 4,
+        "livingArea": 130,
+        "usableArea": 0,
+        "floorInfo": { "en": "Top floor", "de": "Oberste Etage" },
+        "yearBuilt": 2021,
+        "availableFrom": { "en": "", "de": "" },
+        "objectConditionId": 103,
+        "modernization": { "en": "", "de": "" },
+        "heatingTypeId": 113,
+        "energyCertificateId": 126,
+        "energyCertTypeId": "verbrauch",
+        "energyCarrierId": 118,
+        "equipmentLevelId": 111,
+        "address": {
+            "de": "Jungfernstieg 22, 20354 Hamburg, Germany",
+            "en": "Jungfernstieg 22, 20354 Hamburg, Germany"
+        },
+        "locationQuery": { "en": "Hamburg", "de": "Hamburg" },
+        "postalCode": { "en": "20354", "de": "20354" },
+        "latitude": "",
+        "longitude": "",
+        "images": [
+            "/images/property-image.png",
+            "/images/property-image.png",
+            "/images/property-image.png",
+            "/images/property-image.png",
+            "/images/property-image.png"
+        ],
+        "overview": { "area": 130, "bedrooms": 3, "bathrooms": 2 },
+        "description": {
+            "en": "This exclusive penthouse offers breathtaking city views and high-end finishes throughout. The spacious living area and private rooftop terrace create a luxurious living experience.",
+            "de": "Dieses exklusive Penthouse bietet atemberaubende Stadtblicke und hochwertige Ausstattung. Die großzügige Wohnfläche und die private Dachterrasse schaffen ein luxuriöses Wohnerlebnis."
+        },
+        "equipment": {
+            "en": ["Rooftop terrace", "Air conditioning", "Luxury kitchen"],
+            "de": ["Dachterrasse", "Klimaanlage", "Luxusküche"]
+        },
+        "criteria": {
+            "en": ["Passenger elevator", "Parking space", "Balcony / terrace"],
+            "de": ["Personenaufzug", "Stellplatz", "Balkon/Terrasse"]
+        },
+        "locationDescription": {
+            "en": "Prime location in Hamburg city center with direct access to shopping and waterfront.",
+            "de": "Erstklassige Lage im Hamburger Stadtzentrum mit direktem Zugang zu Shopping und Waterfront."
+        },
+        "lageRich": { "en": "", "de": "" },
+        "equipmentDescriptionRich": { "en": "", "de": "" },
+        "callToActionRich": { "en": "", "de": "" },
+        "criteriaSelected": [97, 98, 91],
+        "agent": {
+            "name": "Elite Homes",
+            "image": "/images/user.png",
+            "logo": "/images/logo-dark.png"
+        },
+        "floorPlan": "/images/plan.png"
+    },
+    {
+        "id": "5",
+        "typeId": "1",
+        "slug": {
+            "en": "charming-apartment-balcony-cologne",
+            "de": "charmante-wohnung-balkon-koeln"
+        },
+        "title": {
+            "en": "Charming apartment with balcony in Cologne",
+            "de": "Charmante Wohnung mit Balkon in Köln"
+        },
+        "featured": false,
+        "statusId": 177,
+        "price": 310000,
+        "searchPrice": 310000,
+        "searchSalePrice": 0,
+        "priceSuffix": { "en": "", "de": "" },
+        "floorTypes": [179],
+        "regionId": 150,
+        "roomCountSearch": 2,
+        "conditionSearch": [6],
+        "purchasePrice": 310000,
+        "objectTypeId": 19,
+        "totalRooms": 3,
+        "livingArea": 70,
+        "usableArea": 0,
+        "floorInfo": { "en": "3 of 6", "de": "3 von 6" },
+        "yearBuilt": 2012,
+        "availableFrom": { "en": "", "de": "" },
+        "objectConditionId": 101,
+        "modernization": { "en": "", "de": "" },
+        "heatingTypeId": 117,
+        "energyCertificateId": 127,
+        "energyCertTypeId": "bedarf",
+        "energyCarrierId": 119,
+        "equipmentLevelId": 109,
+        "address": {
+            "de": "Aachener Strasse 77, 50674 Köln, Germany",
+            "en": "Aachener Strasse 77, 50674 Köln, Germany"
+        },
+        "locationQuery": { "en": "Cologne", "de": "Köln" },
+        "postalCode": { "en": "50674", "de": "50674" },
+        "latitude": "",
+        "longitude": "",
+        "images": [
+            "/images/property-image.png",
+            "/images/property-image.png",
+            "/images/property-image.png",
+            "/images/property-image.png",
+            "/images/property-image.png"
+        ],
+        "overview": { "area": 70, "bedrooms": 2, "bathrooms": 1 },
+        "description": {
+            "en": "A charming apartment with a cozy balcony overlooking a lively street. The property combines traditional design with modern comfort and is ideal for city living.",
+            "de": "Eine charmante Wohnung mit einem gemütlichen Balkon mit Blick auf eine lebhafte Straße. Die Immobilie verbindet traditionelles Design mit modernem Komfort und ist ideal für das Stadtleben."
+        },
+        "equipment": {
+            "en": ["Balcony", "Fitted kitchen", "Wooden flooring"],
+            "de": ["Balkon", "Einbauküche", "Holzboden"]
+        },
+        "criteria": {
+            "en": ["Cellar", "Passenger elevator"],
+            "de": ["Keller", "Personenaufzug"]
+        },
+        "locationDescription": {
+            "en": "Located in Cologne's popular district with vibrant nightlife and cultural attractions.",
+            "de": "In Kölns beliebtem Stadtteil gelegen, mit lebhaftem Nachtleben und kulturellen Sehenswürdigkeiten."
+        },
+        "lageRich": { "en": "", "de": "" },
+        "equipmentDescriptionRich": { "en": "", "de": "" },
+        "callToActionRich": { "en": "", "de": "" },
+        "criteriaSelected": [96, 97],
+        "agent": {
+            "name": "Rhine Realty",
+            "image": "/images/user.png",
+            "logo": "/images/logo-dark.png"
+        },
+        "floorPlan": "/images/plan.png"
+    }
+]

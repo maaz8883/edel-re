@@ -1,0 +1,58 @@
+[
+    {
+        "id": "118",
+        "title": {
+            "en": "District heating",
+            "de": "Fernwärme"
+        }
+    },
+    {
+        "id": "119",
+        "title": {
+            "en": "Gas",
+            "de": "Gas"
+        }
+    },
+    {
+        "id": "120",
+        "title": {
+            "en": "Wood",
+            "de": "Holz"
+        }
+    },
+    {
+        "id": "121",
+        "title": {
+            "en": "Oil",
+            "de": "Öl"
+        }
+    },
+    {
+        "id": "122",
+        "title": {
+            "en": "Electricity",
+            "de": "Strom"
+        }
+    },
+    {
+        "id": "123",
+        "title": {
+            "en": "Solar thermal",
+            "de": "Sonnenwärme"
+        }
+    },
+    {
+        "id": "124",
+        "title": {
+            "en": "Ambient / environmental heat",
+            "de": "Umweltwärme"
+        }
+    },
+    {
+        "id": "125",
+        "title": {
+            "en": "Hydrogen from natural gas",
+            "de": "Wasserstoff aus Erdgas"
+        }
+    }
+]
