@@ -127,9 +127,6 @@ class DatabaseSeeder extends Seeder
       Taxonomy::updateOrCreate(
     [
         'type' => (string) $type,
-        'external_id' => (string) $item['id'], 
-    ],
-    [
         'title' => $titleValue
     ]
 );

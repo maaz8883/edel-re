@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Taxonomy extends Model
 {
-    protected $fillable = ['type', 'external_id', 'title'];
+    protected $fillable = ['type', 'title'];
 
     protected $casts = [
         'title' => 'array',

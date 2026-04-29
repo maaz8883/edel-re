@@ -6,9 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'auto_status'];
 
     protected $casts = [
         'name' => 'array',
+        'auto_status' => 'boolean',
     ];
 }

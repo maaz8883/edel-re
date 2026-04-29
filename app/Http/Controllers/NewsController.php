@@ -5,142 +5,232 @@ namespace App\Http\Controllers;
 use App\Models\News;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Str;
 
 class NewsController extends Controller
 {
-    public function index(Request $request)
+    private function normalizeBracketNotationInput(array $input): array
     {
-        $perPage = (int) $request->get('perPage', 10);
-
-        $news = News::orderBy('date', 'desc')->paginate($perPage);
-
-        $news->getCollection()->transform(function ($item) {
-            $item->image_url = $item->image
-                ? asset('storage/' . $item->image)
-                : null;
-            return $item;
-        });
-
-        return response()->json($news);
+        $normalized = [];
+        foreach ($input as $key => $value) {
+            if (!is_string($key) || strpos($key, '[') === false) {
+                $normalized[$key] = $value;
+                continue;
+            }
+            $path = preg_replace('/\]/', '', $key);
+            $path = str_replace('[', '.', $path);
+            data_set($normalized, $path, $value);
+        }
+        return $normalized;
     }
 
-    public function show(string $id)
+    private function translateText(string $text): string
     {
-        $news = News::find($id);
-
-        if (!$news) {
-            return response()->json(['message' => 'News not found'], 404);
+        try {
+            $response = Http::get('https://lingva.ml/api/v1/de/en/' . urlencode($text));
+            if ($response->successful()) {
+                $translated = (string) ($response->json()['translation'] ?? $text);
+                return urldecode(str_replace('+', ' ', $translated));
+            }
+        } catch (\Throwable $e) {
+            return $text;
         }
-
-        $news->image_url = $news->image
-            ? asset('storage/' . $news->image)
-            : null;
-
-        return response()->json($news);
+        return $text;
     }
 
-    public function showBySlug(string $lang, string $slug)
+    private function buildPublicStorageUrl(string $path): string
     {
-        $news = News::whereJsonContains("slug->{$lang}", $slug)->first();
+        $url = Storage::disk('public')->url($path);
 
-        if (!$news) {
-            return response()->json(['message' => 'News not found'], 404);
+        if (Str::startsWith($url, ['http://', 'https://'])) {
+            return $url;
         }
 
-        $news->image_url = $news->image
-            ? asset('storage/' . $news->image)
-            : null;
+        $baseUrl = request()->getSchemeAndHttpHost();
+        if (!empty($baseUrl)) {
+            return rtrim($baseUrl, '/') . $url;
+        }
 
-        return response()->json($news);
+        $appUrl = rtrim((string) config('app.url'), '/');
+        return $appUrl !== '' ? $appUrl . $url : $url;
+    }
+
+    private function normalizeNewsResponse(News $news): News
+    {
+        $news->image_url = $news->image ? $this->buildPublicStorageUrl($news->image) : null;
+        return $news;
+    }
+
+    private function handleNewsLogic(array $data, bool $isUpdate = false, array $originalData = []): array
+    {
+        $autoStatus = filter_var($data['auto_status'] ?? false, FILTER_VALIDATE_BOOLEAN);
+        $data['auto_status'] = $autoStatus;
+
+        foreach (['title', 'short_description', 'description'] as $field) {
+            if (!isset($data[$field]) || !is_array($data[$field])) {
+                continue;
+            }
+
+            $de = $data[$field]['de'] ?? '';
+            $en = $data[$field]['en'] ?? '';
+
+            if ($isUpdate && $autoStatus && !empty($de)) {
+                $oldDe = $originalData[$field]['de'] ?? '';
+                if ($de !== $oldDe) {
+                    $data[$field]['en'] = $this->translateText((string) $de);
+                }
+            } elseif ($autoStatus && empty($en) && !empty($de)) {
+                $data[$field]['en'] = $this->translateText((string) $de);
+            }
+
+            if (empty($data[$field]['en'])) {
+                $data[$field]['en'] = $de;
+            }
+            if (empty($data[$field]['de'])) {
+                $data[$field]['de'] = $data[$field]['en'];
+            }
+        }
+
+        $slugSourceEn = $data['title']['en'] ?? '';
+        $slugSourceDe = $data['title']['de'] ?? '';
+        $data['slug'] = [
+            'en' => Str::slug((string) ($slugSourceEn !== '' ? $slugSourceEn : $slugSourceDe)),
+            'de' => Str::slug((string) ($slugSourceDe !== '' ? $slugSourceDe : $slugSourceEn)),
+        ];
+
+        return $data;
     }
 
     public function store(Request $request)
     {
+        $input = $this->normalizeBracketNotationInput($request->all());
         $request->validate([
-            'title'             => 'required|array',
-            'slug'              => 'required|array',
+            'title' => 'required|array',
             'short_description' => 'required|array',
-            'description'       => 'required|array',
-            'image'             => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
-        ]);
-
-        $imagePath = null;
-
-        // ✅ SINGLE IMAGE UPLOAD
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('news', 'public');
-        }
-
-        $news = News::create([
-            'title'             => $request->title,
-            'slug'              => $request->slug,
-            'short_description' => $request->short_description,
-            'description'       => $request->description,
-            'image'             => $imagePath,
-            'date'              => $request->date ?? now()->toDateString(),
-        ]);
-
-        $news->image_url = $imagePath
-            ? asset('storage/' . $imagePath)
-            : null;
-
-        return response()->json($news, 201);
-    }
-
-    public function update(Request $request, string $id)
-    {
-        $news = News::find($id);
-
-        if (!$news) {
-            return response()->json(['message' => 'News not found'], 404);
-        }
-
-        $request->validate([
+            'description' => 'required|array',
+            'auto_status' => 'sometimes|boolean',
             'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
         ]);
 
-        // ✅ UPDATE IMAGE
+        $data = $this->handleNewsLogic($input);
         if ($request->hasFile('image')) {
+            $data['image'] = $request->file('image')->store('news', 'public');
+        }
+        $data['date'] = now()->toDateString();
 
-            // delete old image
+        $news = News::create($data);
+        return response()->json($this->normalizeNewsResponse($news), 201);
+    }
+
+    // public function update(Request $request, string $id)
+    // {
+    //     $news = News::find($id);
+    //     if (!$news) return response()->json(['message' => 'Not found'], 404);
+
+    //     $inputData = $this->normalizeBracketNotationInput($request->all());
+    //     $request->validate([
+    //         'title' => 'sometimes|array',
+    //         'short_description' => 'sometimes|array',
+    //         'description' => 'sometimes|array',
+    //         'auto_status' => 'sometimes|boolean',
+    //         'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+    //     ]);
+
+    //     $currentData = $news->toArray();
+    //     $mergedData = array_replace_recursive($currentData, $inputData);
+
+    //     if ($request->hasFile('image')) {
+    //         if ($news->image && Storage::disk('public')->exists($news->image)) {
+    //             Storage::disk('public')->delete($news->image);
+    //         }
+    //         $mergedData['image'] = $request->file('image')->store('news', 'public');
+    //     }
+
+    //     $processedData = $this->handleNewsLogic($mergedData, true, $currentData);
+
+    //     $news->update($processedData);
+    //     return response()->json($this->normalizeNewsResponse($news->fresh()));
+    // }
+    public function update(Request $request, string $id)
+    {
+        $news = News::find($id);
+        if (!$news)
+            return response()->json(['message' => 'Not found'], 404);
+
+        // FIX 1: Normalize input FIRST (title[de] -> title['de'])
+        $inputData = $this->normalizeBracketNotationInput($request->all());
+
+        // FIX 2: Validation simplified for form-data compatibility
+        $request->validate([
+            'title' => 'sometimes|array',
+            'short_description' => 'sometimes|array',
+            'description' => 'sometimes|array',
+            'auto_status' => 'sometimes',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+        ]);
+
+        $currentData = $news->toArray();
+        $mergedData = array_replace_recursive($currentData, $inputData);
+
+        // Handle Image
+        if ($request->hasFile('image')) {
             if ($news->image && Storage::disk('public')->exists($news->image)) {
                 Storage::disk('public')->delete($news->image);
             }
-
-            // store new image
-            $news->image = $request->file('image')->store('news', 'public');
+            $mergedData['image'] = $request->file('image')->store('news', 'public');
         }
 
-        $news->update($request->only([
-            'title',
-            'slug',
-            'short_description',
-            'description',
-            'date',
-        ]));
+        // Handle Logic (Translation + Slugs)
+        $processedData = $this->handleNewsLogic($mergedData, true, $currentData);
 
-        $news->image_url = $news->image
-            ? asset('storage/' . $news->image)
-            : null;
+        $news->update($processedData);
+        return response()->json($this->normalizeNewsResponse($news->fresh()));
+    }
+    public function index(Request $request)
+    {
+        $perPage = (int) $request->get('perPage', $request->get('per_page', 10));
+        if ($perPage <= 0) {
+            $perPage = 10;
+        }
+        $news = News::orderBy('date', 'desc')->paginate($perPage);
+
+        $news->getCollection()->transform(function ($item) {
+            return $this->normalizeNewsResponse($item);
+        });
 
         return response()->json($news);
+    }
+    public function show(string $id)
+    {
+        $news = News::find($id);
+        if (!$news) {
+            return response()->json(['message' => 'News not found'], 404);
+        }
+        return response()->json($this->normalizeNewsResponse($news));
+    }
+
+    public function showBySlug(string $lang, string $slug)
+    {
+        $news = News::where("slug->{$lang}", $slug)->first();
+        if (!$news) {
+            return response()->json(['message' => 'News not found'], 404);
+        }
+        return response()->json($this->normalizeNewsResponse($news));
     }
 
     public function destroy(string $id)
     {
         $news = News::find($id);
-
         if (!$news) {
             return response()->json(['message' => 'News not found'], 404);
         }
 
-        // delete image
         if ($news->image && Storage::disk('public')->exists($news->image)) {
             Storage::disk('public')->delete($news->image);
         }
 
         $news->delete();
-
         return response()->json(['message' => 'News deleted']);
     }
 }

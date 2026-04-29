@@ -12,6 +12,7 @@ class News extends Model
         'short_description',
         'description',
         'image',
+        'auto_status',
         'date',
     ];
 
@@ -20,6 +21,7 @@ class News extends Model
         'slug'              => 'array',
         'short_description' => 'array',
         'description'       => 'array',
+        'auto_status'       => 'boolean',
         'date'              => 'date',
     ];
 }

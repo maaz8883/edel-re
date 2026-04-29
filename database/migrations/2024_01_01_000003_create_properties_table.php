@@ -13,6 +13,7 @@ return new class extends Migration
             $table->string('type_id')->nullable();
             $table->json('slug');
             $table->json('title');
+            $table->boolean('auto_status')->default(false);
             $table->boolean('featured')->default(false);
             $table->unsignedInteger('status_id')->nullable();
             $table->decimal('price', 15, 2)->default(0);
